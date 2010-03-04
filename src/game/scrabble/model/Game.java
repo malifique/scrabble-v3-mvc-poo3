@@ -197,10 +197,10 @@ public class Game {
         players[p].getRack().addListener(r);
         players[p].getRack().fireRackChanged();
     }
-//    public void updateListeners() {
-//        for(Player p:players)
-//            p.getRack().fireRackChanged();
-//    }
+    public void init() {
+        players[currentPlayer].firePlayerChanged();
+        players[currentPlayer].getRack().fireRackChanged();
+    }
     
     public int getNbPlayers() {
         return players.length;

@@ -29,7 +29,7 @@ public class ScrabbleFrame extends JFrame {
             c.startGame(2, dico);
             ScrabbleFrame s = new ScrabbleFrame(c);
             s.setVisible(true);
-            //c.loadInfos();
+            c.init();
         } catch (FileNotFoundException e) {
             System.out.println("Le dico n'a pas été trouvé");
         }

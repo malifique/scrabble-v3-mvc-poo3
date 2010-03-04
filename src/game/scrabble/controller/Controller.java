@@ -2,6 +2,8 @@ package game.scrabble.controller;
 
 import java.io.FileNotFoundException;
 
+import javax.swing.JLabel;
+
 import game.scrabble.model.CaseListener;
 import game.scrabble.model.Game;
 import game.scrabble.model.PlayerListener;
@@ -18,6 +20,10 @@ public class Controller {
     
     public void startGame(int nb_players, String dico) throws FileNotFoundException {
         game = new Game(nb_players,dico);
+    }
+    
+    public void init() {
+        game.init();
     }
     
     public void playTurn(int x, int y, boolean horizontal, String word) {
@@ -43,12 +49,13 @@ public class Controller {
     public PlayerListener addPlayerListener(int i, PlayerListener pl) {
         game.addPlayerListener(i,pl);
         return pl;
-        
     }
-    
-//    public void loadInfos() {
-//        game.updateListeners();
-//    }
+
+    public PlayerListener addPlayerListener(PlayerListener pl) {
+        for(int i=0;i<game.getNbPlayers();i++)
+            game.addPlayerListener(i,pl);
+        return pl;
+    }
     
     
 }

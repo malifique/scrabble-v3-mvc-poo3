@@ -1,4 +1,7 @@
 package game.scrabble.model;
+import game.scrabble.controller.PlayerListener;
+import game.scrabble.controller.RackListener;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;

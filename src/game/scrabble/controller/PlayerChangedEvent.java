@@ -1,4 +1,4 @@
-package game.scrabble.model;
+package game.scrabble.controller;
 
 import java.util.EventObject;
 

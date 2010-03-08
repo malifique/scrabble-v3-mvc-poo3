@@ -8,14 +8,23 @@ import java.io.FileNotFoundException;
 import javax.swing.JFrame;
 
 public class ScrabbleFrame extends JFrame {
-
+    
+    private GamePanel gp;
+    private Controller c;
+    
     ScrabbleFrame(Controller c) {
+        this.c = c;
         setLayout(new BorderLayout());
-        add(new GamePanel(c),BorderLayout.CENTER);
+        gp = new GamePanel(c,this);
+        add(gp,BorderLayout.CENTER);
         add(new ScorePanel(c),BorderLayout.NORTH);
         add(new RackPanel(c),BorderLayout.SOUTH);
         setSize(440, 500);
-        setName("Scrabble4ever");
+        setTitle("Scrabble4ever");
+    }
+    
+    public void playWord(String word,boolean horizontal) {
+        c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane().getActiveY(), horizontal, word);
     }
     
     public static void main(String[] args) {

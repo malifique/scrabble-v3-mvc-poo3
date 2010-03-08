@@ -1,5 +1,8 @@
 package game.scrabble.model;
 
+import game.scrabble.controller.PlayerChangedEvent;
+import game.scrabble.controller.PlayerListener;
+
 import javax.swing.event.EventListenerList;
 
 /**

@@ -1,5 +1,7 @@
 package game.scrabble.model;
 
+import game.scrabble.controller.CaseListener;
+
 import java.io.FileNotFoundException;
 import java.util.HashSet;
 

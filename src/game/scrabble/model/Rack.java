@@ -1,5 +1,8 @@
 package game.scrabble.model;
 
+import game.scrabble.controller.RackChangedEvent;
+import game.scrabble.controller.RackListener;
+
 import java.util.ArrayList;
 import java.util.Collection;
 

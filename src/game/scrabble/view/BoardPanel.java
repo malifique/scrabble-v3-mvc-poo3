@@ -5,17 +5,43 @@ import game.scrabble.model.Board;
 
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-public class BoardPanel extends JPanel {
+public class BoardPanel extends JPanel implements ActionListener {
 
-    public BoardPanel(Controller c) {
+    private int aX,aY;
+    private ScrabbleFrame scrabbleFrame;
+    
+    public int getActiveX() {
+        return aX;
+    }
+
+    public int getActiveY() {
+        return aY;
+    }
+
+    public BoardPanel(Controller c,ScrabbleFrame sf) {
         LayoutManager layout = new GridLayout(Board.SIZE,Board.SIZE);
         this.setLayout(layout);
         for(int i=0;i<Board.SIZE;i++)
-            for(int j=0;j<Board.SIZE;j++)
-                add((CaseButton) c.addCaseListener(i, j, new CaseButton(Integer.toString(i))));
+            for(int j=0;j<Board.SIZE;j++) {
+                CaseButton cb = new CaseButton(Integer.toString(i),i,j);
+                add((CaseButton) c.addCaseListener(i, j, cb));
+                cb.addActionListener(this);
+            }
+        scrabbleFrame = sf;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent arg0) {
+        
+        aX = ((CaseButton) arg0.getSource()).getX();
+        aY = ((CaseButton) arg0.getSource()).getY();
+        new WordDialog(scrabbleFrame);
     }
 
 }

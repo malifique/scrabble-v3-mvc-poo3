@@ -1,7 +1,7 @@
 package game.scrabble.view;
 
-import game.scrabble.model.PlayerChangedEvent;
-import game.scrabble.model.PlayerListener;
+import game.scrabble.controller.PlayerChangedEvent;
+import game.scrabble.controller.PlayerListener;
 
 import javax.swing.JLabel;
 

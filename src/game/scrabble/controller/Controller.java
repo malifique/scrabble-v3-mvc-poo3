@@ -4,10 +4,7 @@ import java.io.FileNotFoundException;
 
 import javax.swing.JLabel;
 
-import game.scrabble.model.CaseListener;
 import game.scrabble.model.Game;
-import game.scrabble.model.PlayerListener;
-import game.scrabble.model.RackListener;
 import game.scrabble.view.PlayerLabel;
 
 public class Controller {

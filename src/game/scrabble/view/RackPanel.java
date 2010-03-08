@@ -1,8 +1,8 @@
 package game.scrabble.view;
 
 import game.scrabble.controller.Controller;
-import game.scrabble.model.RackChangedEvent;
-import game.scrabble.model.RackListener;
+import game.scrabble.controller.RackChangedEvent;
+import game.scrabble.controller.RackListener;
 
 import java.awt.FlowLayout;
 import java.awt.LayoutManager;

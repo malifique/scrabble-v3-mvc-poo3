@@ -1,5 +1,8 @@
 package game.scrabble.model;
 
+import game.scrabble.controller.CaseChangedEvent;
+import game.scrabble.controller.CaseListener;
+
 import javax.swing.event.EventListenerList;
 
 /**

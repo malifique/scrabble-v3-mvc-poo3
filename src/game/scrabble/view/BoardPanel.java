@@ -8,11 +8,14 @@ import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class BoardPanel extends JPanel implements ActionListener {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private int aX,aY;
     private ScrabbleFrame scrabbleFrame;
     
@@ -27,10 +30,10 @@ public class BoardPanel extends JPanel implements ActionListener {
     public BoardPanel(Controller c,ScrabbleFrame sf) {
         LayoutManager layout = new GridLayout(Board.SIZE,Board.SIZE);
         this.setLayout(layout);
-        for(int i=0;i<Board.SIZE;i++)
-            for(int j=0;j<Board.SIZE;j++) {
-                CaseButton cb = new CaseButton(Integer.toString(i),i,j);
-                c.addCaseListener(i, j, cb);
+        for(int y=0;y<Board.SIZE;y++)
+            for(int x=0;x<Board.SIZE;x++) {
+                CaseButton cb = new CaseButton(Integer.toString(y),x,y);
+                c.addCaseListener(x, y, cb);
                 add(cb);
                 cb.addActionListener(this);
             }

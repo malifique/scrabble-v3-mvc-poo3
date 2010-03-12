@@ -10,6 +10,10 @@ import javax.swing.JOptionPane;
 
 public class ScrabbleFrame extends JFrame {
     
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private GamePanel gp;
     private Controller c;
     
@@ -26,6 +30,7 @@ public class ScrabbleFrame extends JFrame {
     
     public void playWord(String word,boolean horizontal) {
         try {
+            System.out.println("word "+word+" horizontal : "+horizontal+" ("+gp.getBoardPane().getActiveX()+","+gp.getBoardPane().getActiveY()+")");
             c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane().getActiveY(), horizontal, word);
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "error", JOptionPane.WARNING_MESSAGE);

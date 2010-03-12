@@ -98,8 +98,8 @@ public class Board {
             } else if(grid[x][y].isEmpty()) {
                 Letter letter = rack.getLetter(word.charAt(i));
                 if (letter==null) {
+                    error="The letters of the rack does not fit : "+word.charAt(i)+" is not in the rack";
                     i=word.length()+1;
-                    error="The letters of the rack does not fit";
                 } else {
                     letters.add(letter);
                     int cross = checkCrossWord(x,y,horizontal,letter);
@@ -113,6 +113,7 @@ public class Board {
                 goodPlace = true;
             x += c;
             y += l;
+            System.out.println("("+x+","+y+")");
         }
         x=xi;y=yi;
         if(i>word.length()) {

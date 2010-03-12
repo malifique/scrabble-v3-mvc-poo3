@@ -7,18 +7,21 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JDialog;
-import javax.swing.JTextPane;
+import javax.swing.JTextField;
 
 public class WordDialog extends JDialog implements ActionListener {
 
-    private JTextPane word;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+    private JTextField word;
     private JCheckBox horizontal;
 
     public WordDialog(ScrabbleFrame owner) {
         super(owner,true);
         setLayout(new FlowLayout());
-        word = new JTextPane();
-        
+        word = new JTextField(20);
         horizontal = new JCheckBox("horizontal");
         add(horizontal);
         add(word);

@@ -10,6 +10,10 @@ import javax.swing.JButton;
 
 public class CaseButton extends JButton implements CaseListener {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private static Color colors[];
 
     static {
@@ -40,6 +44,9 @@ public class CaseButton extends JButton implements CaseListener {
 
     public void caseChanged(CaseChangedEvent event) {
         setText(Character.toString(event.getLetter()));
-        setBackground(colors[(event.getWordMultiplier()>1?1+event.getWordMultiplier():event.getLetterMultiplier()-1)]);
+        if(!event.isEmpty())
+            setBackground(Color.WHITE);
+        else
+            setBackground(colors[(event.getWordMultiplier()>1?1+event.getWordMultiplier():event.getLetterMultiplier()-1)]);
     }
 }

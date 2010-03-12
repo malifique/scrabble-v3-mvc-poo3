@@ -62,6 +62,7 @@ public class Player {
         for(PlayerListener listener : listenerList){
             listener.playerChanged(new PlayerChangedEvent(this, score, name));
         }
+        rack.fireRackChanged();
     }
 
     /** function playTurn(Board board, Bag bag)

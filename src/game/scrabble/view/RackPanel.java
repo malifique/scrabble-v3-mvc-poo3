@@ -12,6 +12,10 @@ import javax.swing.JPanel;
 
 public class RackPanel extends JPanel implements RackListener {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private JLabel rack; 
     
     public RackPanel() {

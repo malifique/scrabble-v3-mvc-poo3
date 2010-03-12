@@ -43,7 +43,8 @@ public class Game {
             while(players[currentPlayer].getRack().length()<Rack.SIZE) {
                 players[currentPlayer].getRack().addLetter(bag.getLetter());
             }
-            players[++currentPlayer].firePlayerChanged();
+            currentPlayer=(currentPlayer+1)%players.length;
+            players[currentPlayer].firePlayerChanged();
             return true;
         }
         return false;

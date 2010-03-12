@@ -30,4 +30,8 @@ public class CaseChangedEvent extends EventObject{
     public char getLetter() {
         return letter;
     }
+    
+    public boolean isEmpty() {
+        return (letter==' ');
+    }
 }

@@ -21,22 +21,21 @@ public class CaseButton extends JButton implements CaseListener {
         colors[4] = Color.RED;
     }
 
-    private int x,y;
+    private int posX,posY;
     
-    public int getX() {
-        return x;
+    public int getPosX() {
+        return posX;
     }
 
-    public int getY() {
-        return y;
+    public int getPosY() {
+        return posY;
     }
 
     public CaseButton(String string, int i, int j) {
         super(string);
         setMargin(new Insets(1,1,1,1));
-        this.x=i;
-        this.y=j;
-        System.out.println("test"+i+j);
+        this.posX=i;
+        this.posY=j;
     }
 
     public void caseChanged(CaseChangedEvent event) {

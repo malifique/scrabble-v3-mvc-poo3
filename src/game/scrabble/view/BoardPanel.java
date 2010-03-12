@@ -30,7 +30,8 @@ public class BoardPanel extends JPanel implements ActionListener {
         for(int i=0;i<Board.SIZE;i++)
             for(int j=0;j<Board.SIZE;j++) {
                 CaseButton cb = new CaseButton(Integer.toString(i),i,j);
-                add((CaseButton) c.addCaseListener(i, j, cb));
+                c.addCaseListener(i, j, cb);
+                add(cb);
                 cb.addActionListener(this);
             }
         scrabbleFrame = sf;
@@ -39,8 +40,8 @@ public class BoardPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent arg0) {
         
-        aX = ((CaseButton) arg0.getSource()).getX();
-        aY = ((CaseButton) arg0.getSource()).getY();
+        aX = ((CaseButton) arg0.getSource()).getPosX();
+        aY = ((CaseButton) arg0.getSource()).getPosY();
         new WordDialog(scrabbleFrame);
     }
 

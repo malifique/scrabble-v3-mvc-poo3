@@ -40,7 +40,10 @@ public class Game {
         int turnScore = board.addWord(x, y, horizontal, word, players[currentPlayer].getRack());
         if(turnScore!=0) {
             players[currentPlayer].addScore(turnScore);
-            currentPlayer++;
+            while(players[currentPlayer].getRack().length()<Rack.SIZE) {
+                players[currentPlayer].getRack().addLetter(bag.getLetter());
+            }
+            players[++currentPlayer].firePlayerChanged();
             return true;
         }
         return false;

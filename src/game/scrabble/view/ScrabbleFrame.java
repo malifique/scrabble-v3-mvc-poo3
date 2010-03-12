@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class ScrabbleFrame extends JFrame {
     
@@ -24,7 +25,11 @@ public class ScrabbleFrame extends JFrame {
     }
     
     public void playWord(String word,boolean horizontal) {
-        c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane().getActiveY(), horizontal, word);
+        try {
+            c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane().getActiveY(), horizontal, word);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "error", JOptionPane.WARNING_MESSAGE);
+        }
     }
     
     public static void main(String[] args) {

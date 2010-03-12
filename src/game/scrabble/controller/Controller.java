@@ -1,11 +1,8 @@
 package game.scrabble.controller;
 
-import java.io.FileNotFoundException;
-
-import javax.swing.JLabel;
-
 import game.scrabble.model.Game;
-import game.scrabble.view.PlayerLabel;
+
+import java.io.FileNotFoundException;
 
 public class Controller {
 

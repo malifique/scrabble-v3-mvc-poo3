@@ -3,6 +3,10 @@ package game.scrabble.controller;
 import java.util.EventObject;
 
 public class PlayerChangedEvent extends EventObject{
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private int score;
     private String name;
     

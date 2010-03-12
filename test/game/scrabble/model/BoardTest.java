@@ -1,4 +1,4 @@
-package game.scrabble;
+package game.scrabble.model;
 
 import static org.junit.Assert.*;
 
@@ -88,13 +88,13 @@ public class BoardTest {
         }
     }
 
-    @Test
+    @Test(expected=IllegalArgumentException.class)
     public void testAddGoodWordGoodPlaceNotInRack() {
-        try {
+        //try {
             board.addWord(7, 7, true, "pig", rack);
-        } catch(IllegalArgumentException e) {
-            assertEquals(e.getMessage(),"The letters of the rack does not fit");
-        }
+        //} catch(IllegalArgumentException e) {
+        //    assertEquals(e.getMessage(),"The letters of the rack does not fit");
+        //}
     }
     @Test
     public void testAddGoodWordGoodPlaceInRack() {

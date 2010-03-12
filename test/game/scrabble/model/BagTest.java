@@ -1,4 +1,4 @@
-package game.scrabble;
+package game.scrabble.model;
 
 
 import java.util.ArrayList;

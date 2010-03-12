@@ -3,7 +3,7 @@ package game.scrabble.model;
 import game.scrabble.controller.CaseListener;
 
 import java.io.FileNotFoundException;
-import java.util.HashSet;
+import java.util.ArrayList;
 
 /**
  * 
@@ -88,7 +88,7 @@ public class Board {
         int i=0;
         int multiplier=1;
         int sizeOfRack = rack.size();
-        HashSet<Letter> letters = new HashSet<Letter>();
+        ArrayList<Letter> letters = new ArrayList<Letter>();
         int xi=x,yi=y;
         String error = "";
         for(i=0;i<word.length();++i) {
@@ -113,7 +113,6 @@ public class Board {
                 goodPlace = true;
             x += c;
             y += l;
-            System.out.println("("+x+","+y+")");
         }
         x=xi;y=yi;
         if(i>word.length()) {

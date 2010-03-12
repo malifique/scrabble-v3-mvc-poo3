@@ -142,5 +142,8 @@ public class Player {
         System.out.println("Here is the actual state of your rack :");
         System.out.println(rack);
     }*/
+    public boolean playTurn(Board board, Bag bag) {
+        return false;
+    }
 
 }

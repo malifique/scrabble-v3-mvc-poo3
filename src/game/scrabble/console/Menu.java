@@ -1,4 +1,9 @@
-package game.scrabble;
+package game.scrabble.console;
+
+import game.scrabble.model.Bag;
+import game.scrabble.model.Board;
+import game.scrabble.model.Game;
+import game.scrabble.model.Player;
 
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;

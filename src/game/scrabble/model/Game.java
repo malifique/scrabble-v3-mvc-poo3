@@ -54,10 +54,10 @@ public class Game {
         return board;
     }
     public void play() {
-        /*for(int i=0;!players[i++].playTurn(board,bag);) {
+        for(int i=0;!players[i++].playTurn(board,bag);) {
             if(i>=players.length)
                 i=0;
-        }*/
+        }
     }
     /**
      * @author Mathieu Rul

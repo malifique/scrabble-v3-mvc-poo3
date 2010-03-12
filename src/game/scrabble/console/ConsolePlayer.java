@@ -1,4 +1,9 @@
-package game.scrabble;
+package game.scrabble.console;
+
+import game.scrabble.model.Bag;
+import game.scrabble.model.Board;
+import game.scrabble.model.Player;
+import game.scrabble.model.Rack;
 
 import java.util.Scanner;
 
@@ -7,7 +12,7 @@ import java.util.Scanner;
  * @author BERNIGAUD Côme
  *
  */
-public class ConsolePlayer implements Player {
+public class ConsolePlayer extends Player {
 
     private Rack rack;
     private int score;
@@ -15,6 +20,7 @@ public class ConsolePlayer implements Player {
     private static int NUMBER=1;
 
     public ConsolePlayer(Bag bag) {
+        super(bag);
         this.score = 0;
         this.rack = new Rack();
         while(rack.length()<7) {
@@ -40,7 +46,6 @@ public class ConsolePlayer implements Player {
     /** function playTurn(Board board, Bag bag)
      * return true if the game is finished
      */
-    @Override
     public boolean playTurn(Board board, Bag bag) {
         Scanner scan = new Scanner(System.in);
         printState(board);

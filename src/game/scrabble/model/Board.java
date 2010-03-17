@@ -20,7 +20,7 @@ public class Board {
     
     public Board(String dicoName) throws FileNotFoundException {
         grid = new Case[SIZE][SIZE];
-        dico = new Dictionary(dicoName);
+        dico = Dictionary.getInstance();
         initClassicGrid();
     }
     

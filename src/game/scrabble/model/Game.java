@@ -22,6 +22,7 @@ public class Game {
 	private Board board;
 	private Player players[];
 	private Bag bag;
+	private Dictionary dictionary;
 	private int currentPlayer;
 
 	public Game(int nb_players, String dico) throws FileNotFoundException {
@@ -30,6 +31,11 @@ public class Game {
 		for (int i = 0; i < nb_players; i++)
 			players[i] = new Player(bag);
 		board = new Board(dico);
+		dictionary = Dictionary.getInstance(dico);
+	}
+
+	public boolean lookupDictionary(String word) {
+		return dictionary.contains(word);
 	}
 
 	public Game(Bag bag, Player players[], Board board) {
@@ -58,7 +64,13 @@ public class Game {
 		players[currentPlayer].firePlayerChanged();
 	}
 
-	public void skipTurn() {
+	public void skipTurn(String letters) {
+		for(int i = 0; i < letters.length(); ++i){
+			players[currentPlayer].getRack().getLetter(letters.charAt(i));
+		}
+		while (players[currentPlayer].getRack().length() < Rack.SIZE) {
+			players[currentPlayer].getRack().addLetter(bag.getLetter());
+		}		
 		currentPlayer = (currentPlayer + 1) % players.length;
 		players[currentPlayer].firePlayerChanged();
 	}

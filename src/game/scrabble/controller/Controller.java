@@ -20,13 +20,17 @@ public class Controller {
 	public void init() {
 		game.init();
 	}
+	
+	public boolean lookupDictionary(String word) {
+		return game.lookupDictionary(word);
+	}
 
 	public void playTurn(int x, int y, boolean horizontal, String word) {
 		game.playTurn(x, y, horizontal, word); // ajouter try catch
 	}
 
-	public void skipTurn() {
-		game.skipTurn();
+	public void skipTurn(String letters) {
+		game.skipTurn(letters);
 	}
 
 	public void changeCurrentPlayerName(String name) {

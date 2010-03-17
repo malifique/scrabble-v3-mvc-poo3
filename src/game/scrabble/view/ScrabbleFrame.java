@@ -1,6 +1,7 @@
 package game.scrabble.view;
 
 import game.scrabble.controller.Controller;
+import game.scrabble.model.Dictionary;
 import game.scrabble.model.Player;
 
 import java.awt.BorderLayout;
@@ -69,10 +70,13 @@ public class ScrabbleFrame extends JFrame {
 		JMenu playerMenu = new JMenu("Player");
 		menuBar.add(playerMenu);
 
-		JMenuItem skipMenuItem = new JMenuItem("Skip turn");
+		JMenuItem skipMenuItem = new JMenuItem("Skip turn and change letter");
 		skipMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				c.skipTurn();
+				String letters = JOptionPane.showInputDialog(null,
+						"Select letters to chnage", "Change letters",
+						JOptionPane.QUESTION_MESSAGE);
+				c.skipTurn(letters);
 			}
 		});
 		playerMenu.add(skipMenuItem);
@@ -95,6 +99,30 @@ public class ScrabbleFrame extends JFrame {
 			}
 		});
 		playerMenu.add(changeMenuItem);
+
+		JMenu gameMenu = new JMenu("Game");
+		menuBar.add(gameMenu);
+
+		JMenuItem lookupMenuItem = new JMenuItem("Lookup word");
+		lookupMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				String word = JOptionPane.showInputDialog(null,
+						"Enter your word", "Lookup word",
+						JOptionPane.QUESTION_MESSAGE);
+
+				if (word.isEmpty()) {
+					JOptionPane.showMessageDialog(Frame.getFrames()[0],
+							"Your word is empty", "Error",
+							JOptionPane.WARNING_MESSAGE);
+				} else {
+					JOptionPane.showMessageDialog(null, word + " is "
+							+ (c.lookupDictionary(word) ? "" : "not ")
+							+ "in dictionary.", "Lookup word",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
+		gameMenu.add(lookupMenuItem);
 	}
 
 	public void playWord(String word, boolean horizontal) {

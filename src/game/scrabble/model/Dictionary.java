@@ -12,7 +12,34 @@ public class Dictionary {
 
     private ArrayList<String> words;
     
-    public Dictionary(String filename) throws FileNotFoundException {
+	/**
+	 * The {@code Dictionary} instance.
+	 */
+	private static Dictionary dictionaryInstance;
+    
+	/**
+	 * Get an instance of {@code Dictionary}.
+	 * 
+	 * @return an instance of {@code Dictionary}.
+	 */
+	public static Dictionary getInstance() {
+		return dictionaryInstance;
+	}
+	
+	/**
+	 * Get an instance of {@code Dictionary}.
+	 * 
+	 * @return an instance of {@code Dictionary}.
+	 * @throws FileNotFoundException 
+	 */
+	public static Dictionary getInstance(String filename) throws FileNotFoundException {
+		if (dictionaryInstance == null) {
+			dictionaryInstance = new Dictionary(filename);
+		}
+		return dictionaryInstance;
+	}
+    
+    private Dictionary(String filename) throws FileNotFoundException {
         File f = new File(filename);
         if(!f.exists())
             throw new FileNotFoundException("Specified file does not exist.");

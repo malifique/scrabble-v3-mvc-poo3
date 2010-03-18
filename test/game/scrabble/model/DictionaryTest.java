@@ -12,7 +12,7 @@ public class DictionaryTest {
     
     @Before
     public void setUp() throws Exception {
-        dico = new Dictionary("/home/mcmic/dico_anglais.txt");
+        dico = Dictionary.getInstance("/home/mcmic/dico_anglais.txt");
     }
 
     @After

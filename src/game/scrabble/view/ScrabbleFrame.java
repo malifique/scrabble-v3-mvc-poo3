@@ -1,8 +1,6 @@
 package game.scrabble.view;
 
 import game.scrabble.controller.Controller;
-import game.scrabble.model.Dictionary;
-import game.scrabble.model.Player;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;
@@ -130,8 +128,7 @@ public class ScrabbleFrame extends JFrame {
 			System.out.println("word " + word + " horizontal : " + horizontal
 					+ " (" + gp.getBoardPane().getActiveX() + ","
 					+ gp.getBoardPane().getActiveY() + ")");
-			c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane()
-					.getActiveY(), horizontal, word);
+			c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane().getActiveY(), horizontal, word);
 		} catch (IllegalArgumentException e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "error",
 					JOptionPane.WARNING_MESSAGE);

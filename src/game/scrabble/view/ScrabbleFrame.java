@@ -43,7 +43,7 @@ public class ScrabbleFrame extends JFrame {
 		JMenuItem helpMenuItem = new JMenuItem("Help");
 		helpMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				JOptionPane.showMessageDialog(null, "Scrabble Help", "Help",
+				JOptionPane.showMessageDialog(null, "Scrabble Help\nClick on a case to put a word", "Help",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -52,7 +52,7 @@ public class ScrabbleFrame extends JFrame {
 		JMenuItem aboutMenuItem = new JMenuItem("About");
 		aboutMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
-				JOptionPane.showMessageDialog(null, "Scrabble v3", "About",
+				JOptionPane.showMessageDialog(null, "Scrabble v3 by\nBERNIGAUD Come\nand\nRUL Mathieu", "About",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
@@ -126,9 +126,11 @@ public class ScrabbleFrame extends JFrame {
 
 	public void playWord(String word, boolean horizontal) {
 		try {
+			/*
 			System.out.println("word " + word + " horizontal : " + horizontal
 					+ " (" + gp.getBoardPane().getActiveX() + ","
 					+ gp.getBoardPane().getActiveY() + ")");
+			*/
 			c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane()
 					.getActiveY(), horizontal, word);
 		} catch (IllegalArgumentException e) {

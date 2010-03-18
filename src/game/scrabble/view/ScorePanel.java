@@ -23,7 +23,7 @@ public class ScorePanel extends JPanel {
             add(pl);
             c.addPlayerListener(i,pl);
         }
-        setBackground(Color.YELLOW);
+        setBackground(Color.gray);
     }
 
 }

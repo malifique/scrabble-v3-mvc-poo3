@@ -10,43 +10,44 @@ import javax.swing.JButton;
 
 public class CaseButton extends JButton implements CaseListener {
 
-    /**
+	/**
      * 
      */
-    private static final long serialVersionUID = 1L;
-    private static Color colors[];
+	private static final long serialVersionUID = 1L;
+	private static Color colors[];
 
-    static {
-        colors = new Color[5];
-        colors[0] = Color.GRAY;
-        colors[1] = Color.CYAN;
-        colors[2] = Color.BLUE;
-        colors[3] = Color.ORANGE;
-        colors[4] = Color.RED;
-    }
+	static {
+		colors = new Color[5];
+		colors[0] = new Color(24, 57, 30);
+		colors[1] = new Color(30, 127, 203);
+		colors[2] = new Color(0, 0, 255);
+		colors[3] = new Color(199, 44, 72);
+		colors[4] = new Color(187, 11, 11);
+	}
 
-    private int posX,posY;
-    
-    public int getPosX() {
-        return posX;
-    }
+	private int posX, posY;
 
-    public int getPosY() {
-        return posY;
-    }
+	public int getPosX() {
+		return posX;
+	}
 
-    public CaseButton(String string, int i, int j) {
-        super(string);
-        setMargin(new Insets(1,1,1,1));
-        this.posX=i;
-        this.posY=j;
-    }
+	public int getPosY() {
+		return posY;
+	}
 
-    public void caseChanged(CaseChangedEvent event) {
-        setText(Character.toString(event.getLetter()));
-        if(!event.isEmpty())
-            setBackground(Color.WHITE);
-        else
-            setBackground(colors[(event.getWordMultiplier()>1?1+event.getWordMultiplier():event.getLetterMultiplier()-1)]);
-    }
+	public CaseButton(String string, int i, int j) {
+		super(string);
+		setMargin(new Insets(1, 1, 1, 1));
+		this.posX = i;
+		this.posY = j;
+	}
+
+	public void caseChanged(CaseChangedEvent event) {
+		setText(Character.toString(event.getLetter()));
+		if (!event.isEmpty())
+			setBackground(Color.WHITE);
+		else
+			setBackground(colors[(event.getWordMultiplier() > 1 ? 1 + event
+					.getWordMultiplier() : event.getLetterMultiplier() - 1)]);
+	}
 }

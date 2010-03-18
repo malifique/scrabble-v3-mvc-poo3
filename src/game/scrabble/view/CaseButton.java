@@ -45,7 +45,7 @@ public class CaseButton extends JButton implements CaseListener {
 	public void caseChanged(CaseChangedEvent event) {
 		setText(Character.toString(event.getLetter()));
 		if (!event.isEmpty())
-			setBackground(Color.WHITE);
+			setBackground(new Color(255, 203, 96));
 		else
 			setBackground(colors[(event.getWordMultiplier() > 1 ? 1 + event
 					.getWordMultiplier() : event.getLetterMultiplier() - 1)]);

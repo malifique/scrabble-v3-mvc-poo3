@@ -32,6 +32,7 @@ public class ScrabbleFrame extends JFrame {
 		add(new RackPanel(c), BorderLayout.SOUTH);
 		setSize(440, 500);
 		setTitle("Scrabble4ever");
+		setLocationRelativeTo(null);
 
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -128,7 +129,8 @@ public class ScrabbleFrame extends JFrame {
 			System.out.println("word " + word + " horizontal : " + horizontal
 					+ " (" + gp.getBoardPane().getActiveX() + ","
 					+ gp.getBoardPane().getActiveY() + ")");
-			c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane().getActiveY(), horizontal, word);
+			c.playTurn(gp.getBoardPane().getActiveX(), gp.getBoardPane()
+					.getActiveY(), horizontal, word);
 		} catch (IllegalArgumentException e) {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "error",
 					JOptionPane.WARNING_MESSAGE);

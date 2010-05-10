@@ -26,6 +26,7 @@ public class Rack {
     }
     
     public void addLetter(Letter l) {
+        if(l==null) return;
         if (l instanceof Joker) {
             ((Joker) l).reinit();
         }

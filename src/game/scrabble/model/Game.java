@@ -1,5 +1,6 @@
 package game.scrabble.model;
 
+import game.scrabble.controller.CaseListener;
 import game.scrabble.controller.PlayerListener;
 import game.scrabble.controller.RackListener;
 
@@ -16,7 +17,7 @@ import java.util.StringTokenizer;
  * @author BERNIGAUD Côme
  * 
  */
-public class Game {
+public class Game implements GameModel {
 
 	public static final String PATH_BAG = "./etc/bag.txt";
 	private Board board;
@@ -49,7 +50,7 @@ public class Game {
 				players[currentPlayer].getRack());
 		if (turnScore != 0) {
 			players[currentPlayer].addScore(turnScore);
-			while (players[currentPlayer].getRack().length() < Rack.SIZE) {
+			while ((players[currentPlayer].getRack().length() < Rack.SIZE)&&(!bag.isEmpty())) {
 				players[currentPlayer].getRack().addLetter(bag.getLetter());
 			}
 			currentPlayer = (currentPlayer + 1) % players.length;
@@ -66,9 +67,9 @@ public class Game {
 
 	public void skipTurn(String letters) {
 		for(int i = 0; i < letters.length(); ++i){
-			players[currentPlayer].getRack().getLetter(letters.charAt(i));
+			bag.addLetter(players[currentPlayer].getRack().getLetter(letters.charAt(i)));
 		}
-		while (players[currentPlayer].getRack().length() < Rack.SIZE) {
+		while ((players[currentPlayer].getRack().length() < Rack.SIZE)&&(!bag.isEmpty())) {
 			players[currentPlayer].getRack().addLetter(bag.getLetter());
 		}		
 		currentPlayer = (currentPlayer + 1) % players.length;
@@ -247,6 +248,11 @@ public class Game {
 		players[i].firePlayerChanged();
 
 	}
+
+    @Override
+    public void addCaseListener(int x, int y, CaseListener l) {
+        board.addCaseListener(x, y, l);
+    }
 
 	/*
 	 * public static void main(String[] args) { Player players[] = new

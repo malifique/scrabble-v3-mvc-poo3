@@ -23,7 +23,7 @@ public class ConsolePlayer extends Player {
         super(bag);
         this.score = 0;
         this.rack = new Rack();
-        while(rack.length()<7) {
+        while((rack.length()<Rack.SIZE)&&(!bag.isEmpty())) {
             rack.addLetter(bag.getLetter());
         }
         this.name="Player "+NUMBER++;
@@ -92,7 +92,7 @@ public class ConsolePlayer extends Player {
         } while((wordScore == 0)&&!end);
         System.out.println("You win "+wordScore+" points");
         score += wordScore;
-        while(rack.length()<Rack.SIZE) {
+        while((rack.length()<Rack.SIZE)&&(!bag.isEmpty())) {
             rack.addLetter(bag.getLetter());
         }
         return false;

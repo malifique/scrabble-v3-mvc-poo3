@@ -21,7 +21,7 @@ public class Player {
 	public Player(Bag bag) {
 		this.score = 0;
 		this.rack = new Rack();
-		while (rack.length() < 7) {
+		while ((rack.length() < Rack.SIZE)&&(!bag.isEmpty())) {
 			rack.addLetter(bag.getLetter());
 		}
 		this.name = "Player " + NUMBER++;
@@ -115,7 +115,7 @@ public class Player {
 						+ letters.charAt(i)
 						+ " : lettre non trouvée dans le rack");
 		}
-		while (rack.length() < Rack.SIZE) {
+		while ((rack.length() < Rack.SIZE)&&(!bag.isEmpty())) {
 			rack.addLetter(bag.getLetter());
 		}
 	}

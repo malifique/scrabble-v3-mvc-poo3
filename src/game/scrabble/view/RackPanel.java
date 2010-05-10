@@ -3,14 +3,11 @@ package game.scrabble.view;
 import game.scrabble.controller.Controller;
 import game.scrabble.controller.RackChangedEvent;
 import game.scrabble.controller.RackListener;
-import game.scrabble.model.Board;
 import game.scrabble.model.Letter;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.Insets;
-import java.awt.LayoutManager;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

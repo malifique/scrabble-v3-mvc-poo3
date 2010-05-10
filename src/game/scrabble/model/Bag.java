@@ -31,4 +31,7 @@ public class Bag {
         i.remove();
         return l;
     }
+    public boolean isEmpty() {
+        return letters.isEmpty();
+    }
 }

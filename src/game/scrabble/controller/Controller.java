@@ -1,19 +1,19 @@
 package game.scrabble.controller;
 
 import game.scrabble.model.Game;
+import game.scrabble.model.GameModel;
 
 import java.io.FileNotFoundException;
 
 public class Controller {
 
-	private Game game;
+	private GameModel game;
 
 	public Controller() {
 		game = null;
 	}
 
-	public void startGame(int nb_players, String dico)
-			throws FileNotFoundException {
+	public void startGame(int nb_players, String dico) throws FileNotFoundException {
 		game = new Game(nb_players, dico);
 	}
 
@@ -38,7 +38,7 @@ public class Controller {
 	}
 
 	public CaseListener addCaseListener(int x, int y, CaseListener l) {
-		game.getBoard().addCaseListener(x, y, l);
+		game.addCaseListener(x, y, l);
 		return l;
 	}
 
